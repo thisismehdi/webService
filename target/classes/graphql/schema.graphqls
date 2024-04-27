@@ -1,0 +1,26 @@
+type Query{
+    allEtudiants:[Etudiant],
+    etudiantById(id : Int) : Etudiant
+}
+
+type Mutation {
+    saveEtudiant(etudiantDTO : EtudiantDTO) : Etudiant
+}
+
+type Etudiant{
+    id : Int,
+    cne : String,
+    nom : String,
+    prenom : String,
+    email : String,
+    niveau : String
+
+}
+
+input EtudiantDTO{
+    cne : String,
+    nom : String,
+    prenom : String,
+    email : String,
+    niveau : String
+}

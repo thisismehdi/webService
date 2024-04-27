@@ -1,0 +1,35 @@
+syntax="proto3";
+option java_package = "com.example.demo";
+service EtudiantService {
+  rpc getAllEtudiant(GetAllEtudiantsRequest) returns (GetEtudiantsResponse);
+  rpc getEtudiantById(GetEtudiantByIdRequest) returns (GetEtudiantByIdResponse);
+  rpc saveEtudiant(SaveEtudiantRequest) returns (SaveEtudiantResponse);
+}
+
+message GetAllEtudiantsRequest{}
+message GetEtudiantsResponse{
+  repeated Etudiant etudiant=1;
+}
+
+message Etudiant {
+  int64 id=1;
+  string name=2;
+  string cne=3;
+}
+message GetEtudiantByIdRequest{
+  int64 etuidantId=1;
+}
+message GetEtudiantByIdResponse{
+  Etudiant etudiant=1;
+}
+message SaveEtudiantRequest{
+  EtudiantRequest etudiant=1;
+}
+
+message EtudiantRequest {
+  string name=1;
+  string email=2;
+}
+message SaveEtudiantResponse{
+  Etudiant etudiant=1;
+}
